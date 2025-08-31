@@ -64,13 +64,15 @@ local ui = AntiLua.CreateUI({
             if not antifling_connection then
                 antifling_connection = Services.RunService.Heartbeat:Connect(protect_character)
             end
+			AntiLua.Notify("AntiFling Enabled!", 5, nil, "INFO")
         else
             if antifling_connection then
                 antifling_connection:Disconnect()
                 antifling_connection = nil
             end
+			AntiLua.Notify("AntiFling Disabled!", 5, nil, "INFO")
         end
     end
 })
 
-AntiLua.Notify("You can toggle the UI with Left Control!", 10)
+AntiLua.Notify("You can toggle the UI with Left Control!", 10, nil, "INFO")
