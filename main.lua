@@ -1,10 +1,18 @@
 local AntiLua = loadstring(game:HttpGet("https://raw.githubusercontent.com/Ukrubojvo/Modules/main/AntiLua.lua"))()
+function missing(t, f, fallback)
+    if type(f) == t then return f end
+    return fallback
+end
+
+local cloneref = missing("function", cloneref, function(...) return ... end)
 
 -- // Services // --
-local Services = {
-	Players = cloneref(game:GetService("Players")),
-	RunService = cloneref(game:GetService("RunService"))
-}
+local Services = setmetatable({}, {
+    __index = function(self, name)
+        self[name] = cloneref(game:GetService(name))
+        return self[name]
+    end
+})
 
 -- // Player // --
 local player = Services.Players.LocalPlayer
