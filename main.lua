@@ -1,4 +1,3 @@
-local AntiLua = loadstring(game:HttpGet("https://raw.githubusercontent.com/Ukrubojvo/Modules/main/AntiLua.lua"))()
 function missing(t, f, fallback)
     if type(f) == t then return f end
     return fallback
@@ -7,6 +6,7 @@ end
 local cloneref = missing("function", cloneref, function(...) return ... end)
 
 -- // Services // --
+local AntiLua = loadstring(game:HttpGet("https://raw.githubusercontent.com/Ukrubojvo/Modules/main/AntiLua.lua"))()
 local Services = setmetatable({}, {
     __index = function(self, name)
         self[name] = cloneref(game:GetService(name))
