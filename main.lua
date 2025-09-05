@@ -57,6 +57,7 @@ local ui = AntiLua.CreateUI({
     toggle_key = Enum.KeyCode.LeftControl,
     button_text = "Activate AntiFling",
     button_text_active = "AntiFling Activated",
+	enable_blur = true,
     custom_code = function()
        	
     end,
